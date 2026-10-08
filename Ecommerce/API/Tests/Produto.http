@@ -1,0 +1,11 @@
+### RAIZ PROJETO
+GET http://localhost:5062
+
+### CADASTRAR
+POST http://localhost:5062/api/produto/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "Mouse",
+    "Valor": 79.99
+}
