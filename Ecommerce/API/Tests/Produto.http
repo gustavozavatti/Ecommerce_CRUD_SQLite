@@ -1,11 +1,29 @@
 ### RAIZ PROJETO
 GET http://localhost:5062
 
+### LISTAR PRODUTOS
+GET http://localhost:5062/api/produto/listar
+
 ### CADASTRAR
 POST http://localhost:5062/api/produto/cadastrar
 Content-Type: application/json
 
 {
-    "Nome": "Mouse",
-    "Valor": 79.99
+    "Nome": "Teclado",
+    "Valor": 119.99
+}
+
+### BUSCAR PRODUTO
+GET http://localhost:5062/api/produto/buscar/Mouse
+
+### DELETAR PRODUTO 
+DELETE http://localhost:5062/api/produto/deletar/e911618c-6994-408e-8e45-eff90486b4a6
+
+### ALTERAR PRODUTO
+PUT http://localhost:5062/api/produto/atualizar/5bb3efbc-02a0-4127-bc9b-1a8b1913152e
+Content-Type: application/json
+
+{
+    "Nome": "Mouse Gamer",
+    "Valor": 89.99
 }
