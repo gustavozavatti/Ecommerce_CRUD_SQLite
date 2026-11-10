@@ -6,7 +6,7 @@
 function ComponenteModelo(){
     return(
         <div>
-            <h2>Meu primeiro componente</h2>
+            <h1>Titulo Componente</h1>
         </div>
     );
 }

@@ -1,5 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options => {
+    options.AddPolicy("AcessoTotal", policy => {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 builder.Services.AddDbContext<AppDataContext>();
 var app = builder.Build();
 
@@ -92,4 +97,5 @@ app.MapPut("/api/produto/atualizar/{id}", ([FromRoute] string id, [FromBody] Pro
     return Results.NotFound("Produto não encontrado");  
 });
 
+app.UseCors("AcessoTotal");
 app.Run();

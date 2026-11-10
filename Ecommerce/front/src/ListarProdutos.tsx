@@ -1,20 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function ListarProdutos(){
 
+    const[produtos, setProdutos] = useState([]);
+
     useEffect(() => {
         //AXIOS
-        fetch("https://viacep.com.br/ws/83605200/json/").then(resposta => {
-            return resposta.json();
-        }).then(dados => {
-            console.log(dados.localidade);
-            console.log(dados.logradouro);
-        });
+        fetch("http://localhost:5062/api/produto/listar")
+            .then(resposta => {
+                return resposta.json();
+            }).then(produtos => {
+                setProdutos(produtos);
+            });
     }, []);
     
     return(
-        <div>
-        <h1>Listar Produtos</h1>
+    <div>
+        <h1>Lista de Produtos</h1>
+        <ul>
+            {produtos.map((produto : any) => (
+                <li>{produto.nome}</li>
+            ))}
+        </ul>
     </div>
     );
 }
